@@ -4,6 +4,13 @@
 # FAIL      - test niezaliczony i podniesiony został błąd assertionError
 # ERROR     - test niezaliczony i podniesiony został błąd inny niż assertionError
 
+# Uruchamianie testu z poziomu terminala
+# python -m unittest 03_mozliwe_wyniki_testu,__name__,__main__.py                           standardowe uruchomienie
+# python -m unittest 03_mozliwe_wyniki_testu,__name__,__main__.py -v                        uruchomienie z verbosity (bardziej szczegółowe)
+# python -m unittest 03_mozliwe_wyniki_testu,__name__,__main__.py -v -f                     uruchomienie z verbosity do pierwszego FAIL - przerwie dalsze testy, jeśli znajdzie pierwszy FAIL (można też napisać: python -m unittest 03_mozliwe_wyniki_testu,__name__,__main__.py -vf)
+# python -m unittest 03_mozliwe_wyniki_testu,__name__,__main__.TestClass1 -v                uruchomienie testów tylko z klasy TestClass1
+# python -m unittest 03_mozliwe_wyniki_testu,__name__,__main__.TestClass1.test_case_2 -v    uruchomienie tylko testu test_case_2  z klasy TestClass1
+
 import unittest
 
 # assertEqual(funkcja(arg1,arg2,...), spodziewany wynik, 'dodatkowa wiadomość gdy FAIL') porównuje wynik naszej funkcji area(4,5) z oczekiwanym wynikiem 20
@@ -34,8 +41,8 @@ class TestArea(unittest.TestCase):
         raise TypeError('OtherError message')    
     
     
-if __name__ == '__main__':          # __name__ - zmienna dostępna w kazdym skrypcie i przechowująca jego nazwę  
-    unittest.main(verbosity=2)      # domyślnie jesli skrypt uruchamiamy bezpośrednio, to jest to __main__, jeśli jednak gdybyśmy uruchomili go w innym pliku (za pomoca import), to wtedy wyświetli nam jego nazwę 03_mozliwe wyniki testu.py 
+#if __name__ == '__main__':          # __name__ - zmienna dostępna w kazdym skrypcie i przechowująca jego nazwę  
+ #   unittest.main(verbosity=2)      # domyślnie jesli skrypt uruchamiamy bezpośrednio, to jest to __main__, jeśli jednak gdybyśmy uruchomili go w innym pliku (za pomoca import), to wtedy wyświetli nam jego nazwę 03_mozliwe wyniki testu.py 
                                     # ten zapis spowoduje, że część kodu zawarta w tej instrukcji warunkowej if zostanie uruchomiona tylko wtedy, kiedy uruchomimy skrypt bezpośrednio z pliku main. Jeśli uruchomimy go jako import, to kod w instrukcji sie nie wykona
 
 '''
