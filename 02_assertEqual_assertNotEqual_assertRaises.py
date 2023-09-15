@@ -1,3 +1,6 @@
+# dokumentacja unittest: https://docs.python.org/3/library/unittest.html
+
+
 import unittest
 
 # assertEqual(funkcja(arg1,arg2,...), spodziewany wynik, 'dodatkowa wiadomość gdy FAIL') porównuje wynik naszej funkcji area(4,5) z oczekiwanym wynikiem 20
