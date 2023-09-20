@@ -48,3 +48,24 @@ class TestClass3(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
+
+
+'''
+setting up module...
+test_case_1 (__main__.TestClass1.test_case_1) ... ok
+seting up class... TestClass2
+test_case_1 (__main__.TestClass2.test_case_1) ... setting up...
+tearing down...
+ok
+test_case_2 (__main__.TestClass2.test_case_2) ... setting up...
+tearing down...
+ok
+tearig down class... TestClass2
+test_case_1 (__main__.TestClass3.test_case_1) ... ok
+tearing down module...
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK
+'''
