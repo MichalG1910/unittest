@@ -51,3 +51,7 @@ class TestSimpleMathCalculatorSub(unittest.TestCase):
     def test_sub_both_negative(self):
         calc = SimpleMathCalculator()
         self.assertEqual(calc.sub(-4,-6), 2)
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
