@@ -1,9 +1,11 @@
 import unittest
 from calculator.calc_math import SimpleMathCalculator
 
+# metoda 1
 # aby możliwe bylo skorzystanie z pliku testowego, który znajduje sie w innym katalogu, niż testowany plik z kodem
 # musimy z poziomu terminala wywołać (zwróć uwagę z poziomu jakiego katalogu wywołujesz!):
 # ~/pythonGit/unittest/zadania/testowanie_klas_i_metod$ python -m unittest testCalc/test_calc.py -v
+# jest jescze metoda 2, opisana w pliku test_calc_1.py
 
 
 # kożystamy z test_fixtures, aby dla całego modułu stworzyć instancję klasy calc = SimpleMathCalculator(), 
