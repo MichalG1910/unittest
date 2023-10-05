@@ -1,15 +1,50 @@
 import unittest
 import psycopg2
-import sys
-path = r'/home/micha/pythonGit/unittest/zadania/customers'
-sys.path.append(path)
-from customers_db.customers import CustomersDB
 
-# Struktura testu - wzorzec AAA (Arrange-Act-Assert)
+
+# Struktura testu - wzorzec AAA (Arrange-Act-Assert) - w przypadku bardziej skomplikowanych testów pozwala lepiej uporządkować testy 
 # Arrange - zaaranżowanie danych wejściowych i warunków wstępnych
 # Act - działanie na funkcji/metodzie/klasie
 # Assert - dokonanie asercji
 
+class CustomersDB:
+
+    def __init__(self, connection):
+        self.connection = connection
+
+    def add_customer(self,first_name,last_name,email,phone,country):
+        add_list = (first_name, last_name, email, phone, country)
+        
+        cursor = self.connection.cursor()
+        sql = '''
+            INSERT INTO customers (first_name, last_name, email, phone, country)
+            VALUES (%s, %s, %s, %s, %s);'''
+        cursor.execute(sql, add_list)
+        self.connection.commit()
+        return cursor.lastrowid
+
+    def find_customers_by_first_name(self, first_name):
+        cursor = self.connection.cursor()
+        sql = f'''
+            SELECT *
+            FROM customers
+            WHERE first_name LIKE '{first_name}'
+            ORDER BY first_name, last_name;'''
+        cursor.execute(sql)
+        for row in cursor:  # iterujemy po obiekcie cursor 
+            yield row       # i zwracamy kazdy wiersz z danymi, jaki zawiera
+            
+
+    def find_customers_by_country(self, country):
+        cursor = self.connection.cursor()
+        sql = f'''
+            SELECT *
+            FROM customers
+            WHERE country LIKE '{country}'
+            ORDER BY first_name, last_name;'''
+        cursor.execute(sql)
+        for row in cursor:
+            yield row
 
 
 class TestCustomersDB(unittest.TestCase):

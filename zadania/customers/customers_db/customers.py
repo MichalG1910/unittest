@@ -23,8 +23,9 @@ class CustomersDB:
             WHERE first_name LIKE '{first_name}'
             ORDER BY first_name, last_name;'''
         cursor.execute(sql)
-        for row in cursor:
-            yield row
+        for row in cursor:  # iterujemy po obiekcie cursor 
+            yield row       # i zwracamy kazdy wiersz z danymi, jaki zawiera
+            
 
     def find_customers_by_country(self, country):
         cursor = self.connection.cursor()
