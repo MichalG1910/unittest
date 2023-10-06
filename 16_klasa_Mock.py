@@ -138,5 +138,5 @@ random.choice()                                                     # po wywoła
 random.choice.assert_called()
 '''
 
-#bbb
+
 
