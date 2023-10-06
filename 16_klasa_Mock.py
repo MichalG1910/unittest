@@ -137,3 +137,5 @@ random.choice()                                                     # po wywoła
 <Mock name='mock()' id='140075955853264'>
 random.choice.assert_called()
 '''
+
+aaaaaaaaaaaaaaaaaaaaaa
