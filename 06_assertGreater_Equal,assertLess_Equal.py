@@ -1,27 +1,36 @@
 import unittest
 
-# assertGreater - arg1 wiekszy od arg2 to OK
-# assertGreaterEqual - arg1 wiekszy równy arg2 to OK
+
+# assertGreater - arg1 większy od arg2 to OK
+# assertGreaterEqual - arg1 większy równy arg2 to OK
 # assertLess - arg1 mniejszy od arg2 to OK
 # assertLess - arg1 mniejszy równy arg2 to OK
 
 class TestClass(unittest.TestCase):
     def test_case_1(self):
         self.assertGreater(0.4, 0.3)
+
     def test_case_2(self):
         self.assertGreaterEqual(0.4, 0.4)
+
     def test_case_3(self):
         self.assertLess(0.4, 0.5)
+
     def test_case_4(self):
         self.assertLessEqual(0.5, 0.5)
+
     def test_case_5(self):
         self.assertGreater(0.2, 0.3)
+
     def test_case_6(self):
         self.assertGreaterEqual(0.3, 0.4)
+
     def test_case_7(self):
         self.assertLess(0.5, 0.5)
+
     def test_case_8(self):
         self.assertLessEqual(0.6, 0.5)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
