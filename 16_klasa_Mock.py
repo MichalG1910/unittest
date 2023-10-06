@@ -1,16 +1,17 @@
-# Mock to obiekt, którego używa się zamiast rzeczywistej implementacji w trakcie testów jednostkowych. Pozwala on na określenie 
+
+# Mock to obiekt, którego używa się zamiast rzeczywistej implementacji w trakcie testów jednostkowych. Pozwala on na określenie
 # jakich interakcji spodziewamy się w trakcie testów. Następnie można sprawdzić czy spodziewane interakcje rzeczywiście wystąpiły.
 
-'''
-Mockowanie, czyli naśladowanie czegoś, jakiegoś zachowania. W polskim tłumaczeniu można się spotkać z różnymi tłumaczeniami słowa mock, 
-między innymi makieta. Jeżeli metoda, ma w sobie logikę oraz korzysta z zewnętrznych zasobów (takich jak bazadanych, plik, webserwisy itp.), 
-to w naszych testach jednostkowych nie dałoby się takiej metody testować. Jeżeli natomiast podstawimy w miejsce zewnętrznego zasobu, 
-jakiś sztuczny obiekt, który nie ma żadnej logiki, to wtedy jak najbardziej uda nam się taką metodę testować. Żeby taki zabieg nam się 
-udał, nasz kod musi stosować się do pewnych zasad. Między innymi musi mieć luźne powiązania i operować na interfejsach. Jeżeli stosujemy 
-się do tych zasad, to dzięki temu możemy podmienić implementacje na potrzeby testów. Dlatego, jeżeli chcemy dodać testy do jakichś 
-aplikacji, które nie były pisane z myślą o testach, to tutaj może pojawić się problem. Musimy taki kod zrefaktoryzować, co bez 
+"""
+Mockowanie, czyli naśladowanie czegoś, jakiegoś zachowania. W polskim tłumaczeniu można się spotkać z różnymi tłumaczeniami słowa mock,
+między innymi makieta. Jeżeli metoda, ma w sobie logikę oraz korzysta z zewnętrznych zasobów (takich jak baza danych, plik, web serwisy itp.),
+to w naszych testach jednostkowych nie dałoby się takiej metody testować. Jeżeli natomiast podstawimy w miejsce zewnętrznego zasobu,
+jakiś sztuczny obiekt, który nie ma żadnej logiki, to wtedy jak najbardziej uda nam się taką metodę testować. Żeby taki zabieg nam się
+udał, nasz kod musi stosować się do pewnych zasad. Między innymi musi mieć luźne powiązania i operować na interfejsach. Jeżeli stosujemy
+się do tych zasad, to dzięki temu możemy podmienić implementacje na potrzeby testów. Dlatego, jeżeli chcemy dodać testy do jakichś
+aplikacji, które nie były pisane z myślą o testach, to tutaj może pojawić się problem. Musimy taki kod zrefaktoryzować, co bez
 wcześniejszych testów może być dużym wyzwaniem.
-'''
+"""
 
 # uruchamiamy konsolę python, aby potestować klasę mock
 '''
@@ -18,7 +19,7 @@ micha@micha-GF63-Thin-10UC:~$ python
 Python 3.11.4 (main, Jun  9 2023, 07:59:55) [GCC 12.3.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 
->>> from unittest.mock import Mock                          # importujemy klase Mock
+>>> from unittest.mock import Mock                          # importujemy klasę Mock
 >>> mock = Mock()                                           # tworzymy instancję(obiekt) klasy mock
 >>> mock                                                    # wyświetlamy nasz obiekt do konsoli
 <Mock id='139813369721808'>                                 # otrzymujemy w wyniku ID mocka  
@@ -36,7 +37,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 <Mock name='first_mock.first_name' id='139813345279312'>    # to otrzymamy nowy mock z taką nazwą
 
 >>> mock = Mock(return_value='John')                        # tworzenie mocka z atrybutem zwracanej wartości return_value
->>> mock()                                                  # po wywołaniu go, zamiast otrzymac nowy mock,
+>>> mock()                                                  # po wywołaniu go, zamiast otrzymać nowy mock,
 'John'                                                      # zwróci nam naszą zdefiniowaną wartość 
 
 >>> mock = Mock()                                           # tworzenie mocka z atrybutem return_value w inny sposób
@@ -109,7 +110,7 @@ mock = {Mock} <Mock id='140075955758608'>
 6
 >>> random.choice([4,5,6,7])
 4
->>> random.choice = Mock(return_value=6)                            # po zmockowaniu retur_value=6, za kazdym razem mock zwraca wartość 6
+>>> random.choice = Mock(return_value=6)                            # po zmockowaniu return_value=6, za każdym razem mock zwraca wartość 6
 >>> random.choice()
 6
 >>> random.choice()
@@ -123,7 +124,7 @@ mock = {Mock} <Mock id='140075955758608'>
 >>> random.choice = Mock()                                          # tworzymy mocka
 >>> mock
 <Mock id='140075955758608'>
->>> random.choice.assert_called()                                   # wywołujemy na nim metode assert_called(), która oczekuje, że mock był wywołany. Nasz nie był - zwróciło błąd
+>>> random.choice.assert_called()                                   # wywołujemy na nim metodę assert_called(), która oczekuje, że mock był wywołany. Nasz nie był - zwróciło błąd
 Traceback (most recent call last):
   File "/snap/pycharm-community/347/plugins/python-ce/helpers/pydev/pydevconsole.py", line 364, in runcode
     coro = func()
