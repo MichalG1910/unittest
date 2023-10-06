@@ -1,5 +1,5 @@
 class Employee:
-    '''A simple class that describes an employee of the company. Prosta klasa opisująca pracownika firmy'''
+    """A simple class that describes an employee of the company. Prosta klasa opisująca pracownika firmy"""
 
     tax_rate = 0.17
     bonus_rate = 0.10
@@ -12,7 +12,7 @@ class Employee:
     def __str__(self):                                  # tekstowa interpretacja naszego obiektu __str__
         return f'{self.first_name} {self.last_name}'
     
-    @property                                           # dekorator(powiązny z getter i setter)
+    @property                                           # dekorator(powiązany z getter i setter)
     def email(self):
         return f'{self.first_name.lower()}.{self.last_name.lower()}@mail.com'
     
@@ -24,8 +24,7 @@ class Employee:
         self.salary = int(self.salary * (1 + self.bonus_rate))
 
 
-
-# sprawdzenie poprawności działania klasy. Działa na zasadzie getterów i setterów
+# sprawdzenie poprawności działania klasy. Działa na zasadzie getterów i setter
 # wywołując metodę apply_bonus() zmienna salary zostaje pomnożona 1.1
 emp = Employee('John', 'Smith', 80000)
 print(emp)                  # John Smith - (drukuje tekstową interpretację obiektu __str__)
