@@ -22,14 +22,14 @@ for i in range(5):
 
 print()
 print('# tworzenie mocka bez context_managera i patch.')
-random.randint = Mock(name = 'mock_widouth_cm_and_patch',return_value=1) 
+random.randint = Mock(return_value=1)
 for i in range(5):
-    print(random.randint(1,6), end=' ')
+    print(random.randint(1, 6), end=' ')
 
 print()
 print('# skorzystanie dalej z random.randint, dalej zwraca naszego mocka = 1')
 for i in range(5):
-    print(random.randint(1,6), end=' ')
+    print(random.randint(1, 6), end=' ')
 print()
 
 # dekorator @patch
