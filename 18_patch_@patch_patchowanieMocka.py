@@ -61,6 +61,6 @@ class TestGetValue(unittest.TestCase):
         self.assertEqual(mock_random.call_count, 1)
 
 
-unittest.main(verbosity=2)   
+unittest.main(verbosity=2)                                  # uwaga, dla pycharm musisz zakomentowac te linię
 
     
