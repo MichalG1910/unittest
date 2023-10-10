@@ -36,6 +36,9 @@ print()
 print('mockowanie przy pomocy dekoratora @patch')
 def get_value():
     return random.randint(1,9)
+def get_value_cx():
+        rand_int = random.randint(1,9)
+        return f'CX-{rand_int}'
 
 @patch('random.randint')                                    # uzywamy dekoratora @patch na random.randint
 def test_get_value(mock_random):
@@ -47,13 +50,18 @@ test_get_value()                                            # uruchamiamy nasza 
 
 print('\nTest - mockowanie przy pomocy dekoratora @patch')
 class TestGetValue(unittest.TestCase):
-    def get_value(self):
-        return random.randint(1,9)
     
     @patch('random.randint')
     def test_get_value(self, mock_random):
         mock_random.return_value = 3
         self.assertEqual(get_value(), 3)
+    
+    @patch('random.randint')
+    def test_get_value_cx(self, mock_random):
+        mock_random.return_value = 3
+        actual = get_value_cx()
+        expected = 'CX-3'
+        self.assertEqual(actual, expected)
         
     @patch('random.randint')
     def test_get_value_call_count(self, mock_random):
